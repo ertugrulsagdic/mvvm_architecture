@@ -14,7 +14,7 @@ class GameGrid extends StatelessWidget {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: context.height * 0.00085,
+        childAspectRatio: context.width / context.height,
       ),
       itemCount: 3,
       shrinkWrap: true,

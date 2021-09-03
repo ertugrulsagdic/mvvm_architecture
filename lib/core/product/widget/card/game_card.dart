@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/src/context_extension.dart';
 
@@ -13,27 +13,35 @@ class GameCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: context.paddingLow,
+        padding: context.horizontalPaddingLow,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              child: Image.network(
-                model!.image!,
-                height: context.dynamicHeight(0.25),
-                fit: BoxFit.cover,
+            Expanded(
+              flex: 2,
+              child: CachedNetworkImage(
+                imageUrl: model!.image!,
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                        image: imageProvider, fit: BoxFit.cover),
+                  ),
+                ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AutoSizeText(
-                  model!.name!,
-                  maxLines: 2,
-                  minFontSize: 5,
-                ),
-                Text('\$ ${model!.money}'),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(model!.name!,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                  Text('\$ ${model!.money}'),
+                ],
+              ),
             ),
           ],
         ),
