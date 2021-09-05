@@ -1,4 +1,12 @@
-enum NetworkRoutes { LOGIN, BUILD_HOME, FRIENDS, GAME, SLIDER }
+enum NetworkRoutes {
+  LOGIN,
+  BUILD_HOME,
+  FRIENDS,
+  GAME,
+  SLIDER,
+  BURGERS,
+  BURGERS_PRICE,
+}
 
 extension NetworkRoutesString on NetworkRoutes {
   String get rawValue {
@@ -13,6 +21,10 @@ extension NetworkRoutesString on NetworkRoutes {
         return 'games';
       case NetworkRoutes.SLIDER:
         return 'slider';
+      case NetworkRoutes.BURGERS:
+        return 'burgers';
+      case NetworkRoutes.BURGERS_PRICE:
+        return 'burgers/price';
       default:
         throw Exception('Routes Not Found');
     }
