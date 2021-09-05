@@ -1,13 +1,15 @@
+import 'package:vexana/src/interface/INetworkService.dart';
+import 'package:vexana/vexana.dart';
+
 import '../../../../core/base/model/base_response_model.dart';
+import '../../../../core/extension/string_extension.dart';
+import '../../../_product/_utility/service_helper.dart';
 import '../../../_product/enum/network_route.enum.dart';
 import '../model/login_model.dart';
 import '../model/login_response_model.dart';
 import 'ILoginService.dart';
-import 'package:vexana/src/interface/INetworkService.dart';
-import 'package:vexana/vexana.dart';
-import '../../../../core/extension/string_extension.dart';
 
-class LoginService extends ILoginService {
+class LoginService extends ILoginService with ServiceHelper {
   LoginService(INetworkManager manager) : super(manager);
 
   @override
@@ -20,6 +22,8 @@ class LoginService extends ILoginService {
     );
 
     if (response.data is BaseResponseModel) {
+      print('###################3');
+      print(response.data!.toJson());
       response.data!.data =
           _responseParser<LoginResponseModel, LoginResponseModel>(
               LoginResponseModel(), response.data!.data);
@@ -30,18 +34,17 @@ class LoginService extends ILoginService {
       final errorModel = _errorParser<BaseResponseModel, BaseResponseModel>(
           BaseResponseModel(), response.error!.description);
 
+      print(errorModel!.toJson());
       return errorModel;
     }
   }
 }
 
 extension _ParseOperations on LoginService {
-  R? _responseParser<R, T>(LoginResponseModel model, dynamic data) {
+  R? _responseParser<T, R>(LoginResponseModel model, dynamic data) {
     if (data is List) {
       return data.map((e) => model.fromJson(e)).toList().cast<T>() as R;
     } else if (data is Map) {
-      print('#########data######');
-      print(data);
       return model.fromJson(data as Map<String, dynamic>) as R;
     }
     return data as R?;

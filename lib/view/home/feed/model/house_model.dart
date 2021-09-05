@@ -5,7 +5,7 @@ part 'house_model.g.dart';
 
 @JsonSerializable()
 class HouseModel extends INetworkModel<HouseModel> {
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? id;
   String? title;
   String? description;
@@ -29,7 +29,7 @@ class HouseModel extends INetworkModel<HouseModel> {
 
 @JsonSerializable()
 class UserHouse extends INetworkModel<UserHouse> {
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? id;
   String? name;
   String? image;

@@ -13,7 +13,7 @@ extension StringLocalization on String {
   bool get isValidEmails =>
       RegExp(ApplicationConstants.EMAIL_REGIEX).hasMatch(this);
 
-  bool get parseBool => this.toLowerCase() == 'true';
+  bool get parseBool => toLowerCase() == 'true';
 }
 
 extension ImagePathExtension on String {

@@ -21,6 +21,11 @@ class LocaleManager {
     await _preferences!.clear();
   }
 
+  Future<void> clearAllSaveFirst() async {
+    await setBoolValue(PreferencesKeys.IS_FIRST_APP, true);
+    await _preferences!.clear();
+  }
+
   Future<void> setStringValue(PreferencesKeys key, String value) async {
     await _preferences!.setString(key.toString(), value);
   }
@@ -29,7 +34,9 @@ class LocaleManager {
     await _preferences!.setBool(key.toString(), value);
   }
 
-  String getStringValue(PreferencesKeys key) => _preferences!.getString(key.toString()) ?? '';
+  String getStringValue(PreferencesKeys key) =>
+      _preferences!.getString(key.toString()) ?? '';
 
-  bool getBoolValue(PreferencesKeys key) => _preferences!.getBool(key.toString()) ?? false;
+  bool getBoolValue(PreferencesKeys key) =>
+      _preferences!.getBool(key.toString()) ?? false;
 }

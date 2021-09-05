@@ -12,6 +12,8 @@ abstract class  LocaleKeys {
   static const onBoard_page3_desc = 'onBoard.page3.desc';
   static const onBoard_page3 = 'onBoard.page3';
   static const onBoard = 'onBoard';
+  static const splash_welcome = 'splash.welcome';
+  static const splash = 'splash';
   static const login_tab1 = 'login.tab1';
   static const login_tab2 = 'login.tab2';
   static const login_email = 'login.email';
@@ -45,6 +47,22 @@ abstract class  LocaleKeys {
   static const home_game_tabbar_tab5 = 'home.game.tabbar.tab5';
   static const home_game_tabbar = 'home.game.tabbar';
   static const home_game = 'home.game';
+  static const home_burgers_favoriteProducts = 'home.burgers.favoriteProducts';
+  static const home_burgers_normalProducts = 'home.burgers.normalProducts';
+  static const home_burgers = 'home.burgers';
   static const home = 'home';
+  static const settings_title = 'settings.title';
+  static const settings_about_title = 'settings.about.title';
+  static const settings_about_contribitions = 'settings.about.contribitions';
+  static const settings_about = 'settings.about';
+  static const settings_core_title = 'settings.core.title';
+  static const settings_core_themeTitle = 'settings.core.themeTitle';
+  static const settings_core_themeDesc = 'settings.core.themeDesc';
+  static const settings_core_langTitle = 'settings.core.langTitle';
+  static const settings_core_langDesc = 'settings.core.langDesc';
+  static const settings_core = 'settings.core';
+  static const settings_exit = 'settings.exit';
+  static const settings_applicationTour = 'settings.applicationTour';
+  static const settings = 'settings';
 
 }

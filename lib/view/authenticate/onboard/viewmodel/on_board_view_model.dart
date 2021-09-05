@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import '../../../../core/constants/enums/locale_keys_enum.dart';
 import '../../../../core/constants/navigation/navigation_constants.dart';
-import '../../../../core/extension/string_extension.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../_product/_constants/image_path_svg.dart';
 import '../model/on_board_model.dart';
@@ -58,6 +57,10 @@ abstract class _OnBoardViewModelBase with Store, BaseViewModel {
     changeLoading();
     await localeManager.setBoolValue(PreferencesKeys.IS_FIRST_APP, true);
     changeLoading();
-    await navigation.navigateToPage(path: NavigationConstants.TEST_VIEW);
+    if (navigation.navigatorKey.currentState!.canPop()) {
+      navigation.navigatorKey.currentState!.pop();
+    } else {
+      await navigation.navigateToPageClear(path: NavigationConstants.TEST_VIEW);
+    }
   }
 }

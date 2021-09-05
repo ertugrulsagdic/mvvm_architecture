@@ -19,7 +19,7 @@ class GameCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Expanded(
-              flex: 2,
+              flex: 3,
               child: CachedNetworkImage(
                 imageUrl: model!.image!,
                 imageBuilder: (context, imageProvider) => Container(

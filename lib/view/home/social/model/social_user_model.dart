@@ -5,7 +5,7 @@ part 'social_user_model.g.dart';
 
 @JsonSerializable()
 class SocialUserModel extends INetworkModel<SocialUserModel> {
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? sId;
   String? name;
   String? company;
